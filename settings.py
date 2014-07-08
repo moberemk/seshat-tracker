@@ -14,7 +14,7 @@ import environment
 path = lambda root,*a: os.path.join(root, *a)
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
-define("port", default=80, help="run on the given port", type=int)
+define("port", default=8080, help="run on the given port", type=int)
 define("config", default=None, help="tornado config file")
 define("debug", default=False, help="debug mode")
 tornado.options.parse_command_line()
