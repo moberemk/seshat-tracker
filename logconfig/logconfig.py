@@ -23,13 +23,13 @@ class UTF8SafeFormatter(RemoteAddressFormatter):
     def __init__(self, fmt=None, datefmt=None, encoding='utf-8'):
         logging.Formatter.__init__(self, fmt, datefmt)
         self.encoding = encoding
-    
+
     def formatException(self, e):
         r = logging.Formatter.formatException(self, e)
         if type(r) in [types.StringType]:
             r = r.decode(self.encoding, 'replace') # Convert to unicode
         return r
-    
+
     def format(self, record):
         t = RemoteAddressFormatter.format(self, record)
         if type(t) in [types.UnicodeType]:
@@ -40,8 +40,7 @@ class NullHandler(logging.Handler):
     def emit(self, record):
         pass
 
-def initialize_logging(syslog_tag, syslog_facility, loggers,
-        log_level=logging.INFO, use_syslog=False):
+def initialize_logging(syslog_tag, syslog_facility, loggers, log_level=logging.INFO, use_syslog=False):
     if os.path.exists('/dev/log'):
         syslog_device = '/dev/log'
     elif os.path.exists('/var/run/syslog'):

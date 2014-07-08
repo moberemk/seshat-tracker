@@ -1,1 +1,2 @@
-from logconfig import initialize_logging
+# from logconfig import Logger
+import logconfig
