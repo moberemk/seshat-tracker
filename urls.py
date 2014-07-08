@@ -1,5 +1,5 @@
-from handlers.foo import FooHandler
+from handlers.link import LinkHandler
 
 url_patterns = [
-    (r"/foo", FooHandler),
+    (r"/l", LinkHandler),
 ]
